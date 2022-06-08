@@ -4,7 +4,7 @@ RED="\e[31m"
 GREEN="\e[32m"
 
 if [[ $UID = 0 ]]; then
-    if [[ -f /usr/bin/macchanger ]]; then
+    if [[ -f $(which macchanger) ]]; then
         macchanger -l > vendormac.txt
         ouimac=$(shuf -n 1 vendormac.txt | awk '{print$3}')
         uaama=$(printf '%02x:%02x:%02x' $[Random%256] $[Random%256] $[Random%256])
